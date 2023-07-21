@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+	<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+		<title>Tune Wave</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Poppins:wght@400;700&display=swap"
+		rel="stylesheet">
+		<link rel="stylesheet" href="index.css">
+	</head>
+
+	<body>
+		<header>
+			<img src="./images/musicnote.png" alt="TuneWave">
+			<a href="/"><span> Tune</span>Wave</a>
+		</header>
+		<main>	
+			<!-- The Setup -->	
+			<section id="setup-container">
+				<div class="setup-inner">
+					<img src="/images/MusicRobot.png">
+					<div class="speech-bubble-ai" id="speech-bubble-ai">
+						<p id="lyric-boss-text">
+							Give me a short concept and I shall weave a melodious tapestry of lyrics, title, and album art just for you. Let's get started!
+						</p>
+					</div>
+				</div>
+				<div class="setup-inner setup-input-container" id="setup-input-container">
+					<textarea id="setup-textarea" placeholder="A love song about a music generating robot falling in love with its user"></textarea>
+					<button class="send-btn" id="send-btn" aria-label="send">
+							<img src="images/send-btn-icon.png" alt="send">
+					</button>
+				</div>
+			</section>	
+			<!-- The Output -->	
+			<section class="output-container" id="output-container">
+				<div id="output-img-container" class="output-img-container"></div>
+				<h1 id="output-title"></h1>
+				<h2 id="output-stars"></h2>
+				<p id="output-text"></p>
+			</section>
+		</main>	
+		<footer>
+			&copy; 2023 TuneWave All rights reserved
+		</footer>
+		<script type="module" src="index.js"></script>
+	</body>
+
+</html>

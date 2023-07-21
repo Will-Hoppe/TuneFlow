@@ -1,5 +1,5 @@
 
-import { Configuration, OpenAIApi } from 'openai'
+/*import { Configuration, OpenAIApi } from 'openai'
 
 const setupInputContainer = document.getElementById('setup-input-container')
 const lyricBossText = document.getElementById('lyric-boss-text')
@@ -9,7 +9,7 @@ const configuration = new Configuration({
 })
 
 const openai = new OpenAIApi(configuration)
-
+*/
 document.getElementById("send-btn").addEventListener("click", () => {
   const setupTextarea = document.getElementById('setup-textarea')
   if (setupTextarea.value) {
@@ -17,12 +17,23 @@ document.getElementById("send-btn").addEventListener("click", () => {
     setupInputContainer.innerHTML = `<img src="images/loading.svg" class="loading" id="loading">`
     lyricBossText.innerText = `Ok, just wait a second while my digital brain digests that...`
     fetchBotReply(userInput)
-    fetchSynopsis(userInput)
+    //fetchSynopsis(userInput)
   }
 })
 
 async function fetchBotReply(outline) {
-  const response = await openai.createCompletion({
+  const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/fetchAI'
+  const response = await fetch('https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/fetchAI', {
+    method: 'POST',
+    headers: {
+        'content-type': 'text/plain',
+    },
+    body: outline
+  })
+  const data = await response.json()
+  console.log(data)
+  /*
+  const response1 = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `Generate a short message to enthusiastically say a song idea sounds interesting and that you need some minutes to think about it. Try to include specific details from their idea.
     ###
@@ -40,9 +51,10 @@ async function fetchBotReply(outline) {
     `,
     max_tokens: 60 
   })
+  */
   lyricBossText.innerText = response.data.choices[0].text.trim()
 } 
-
+/*
 async function fetchSynopsis(outline) {
   const response = await openai.createCompletion({
     model: 'text-davinci-003',
@@ -294,4 +306,4 @@ async function fetchImageUrl(imagePrompt){
     document.getElementById('output-container').style.display = 'flex'
     lyricBossText.innerText = `This idea is so good I'm jealous! It's gonna make you rich for sure! Remember, I want 10% 💰`
   })
-}
+}*/

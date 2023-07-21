@@ -23,7 +23,7 @@ async function fetchBotReply(outline) {
   })
   const data = await response.json()
   
-  lyricBossText.innerText = response.data.choices[0].text.trim()
+  lyricBossText.innerText = data.reply.choices[0].text.trim()
 } 
 /*
 async function fetchSynopsis(outline) {

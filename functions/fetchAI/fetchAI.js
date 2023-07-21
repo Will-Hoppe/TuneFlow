@@ -26,8 +26,6 @@ const handler = async (event) => {
       `,
       max_tokens: 60 
     })
-    
-    const subject = event.queryStringParameters.name || 'World'
     return {
       statusCode: 200,
       body: JSON.stringify({ reply: response.data }),

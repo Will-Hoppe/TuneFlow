@@ -14,7 +14,7 @@ document.getElementById("send-btn").addEventListener("click", () => {
 
 async function fetchBotReply(outline) {
   const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/fetchAI'
-  const response = await fetch('https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/fetchAI', {
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
         'content-type': 'text/plain',
@@ -27,7 +27,8 @@ async function fetchBotReply(outline) {
 } 
 
 async function fetchSynopsis(outline) {
-  const response = await fetch('https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/lyrics.js', {
+  const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/lyrics'
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
         'content-type': 'text/plain',
@@ -41,7 +42,8 @@ async function fetchSynopsis(outline) {
 }
 
 async function fetchTitle(lyrics) {
-  const response = await fetch('https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/title.js', {
+  const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/title'
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
         'content-type': 'text/plain',

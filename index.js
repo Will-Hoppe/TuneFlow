@@ -50,6 +50,7 @@ async function fetchTitle(lyrics) {
     },
     body: lyrics
   })
+  const data = await response.json()
   const title = data.reply.choices[0].text.trim()
   document.getElementById('output-title').innerText = title
   setupInputContainer.innerHTML = `<button id="view-song-btn" class="view-song-btn">View Song</button>`

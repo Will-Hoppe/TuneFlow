@@ -50,6 +50,12 @@ async function fetchTitle(lyrics) {
   })
   const title = data.reply.choices[0].text.trim()
   document.getElementById('output-title').innerText = title
+  setupInputContainer.innerHTML = `<button id="view-song-btn" class="view-song-btn">View Song</button>`
+  document.getElementById('view-song-btn').addEventListener('click', ()=>{
+    document.getElementById('setup-container').style.display = 'none'
+    document.getElementById('output-container').style.display = 'flex'
+    lyricBossText.innerText = `This idea is so good I'm jealous! It's gonna make you rich for sure! Remember, I want 10% 💰`
+  })
   //fetchImagePromt(title, lyrics)
 }
 /*

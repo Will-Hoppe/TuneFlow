@@ -8,7 +8,7 @@ document.getElementById("send-btn").addEventListener("click", () => {
     setupInputContainer.innerHTML = `<img src="images/loading.svg" class="loading" id="loading">`
     lyricBossText.innerText = `Ok, just wait a second while my digital brain digests that...`
     fetchBotReply(userInput)
-    //fetchSynopsis(userInput)
+    fetchSynopsis(userInput)
   }
 })
 

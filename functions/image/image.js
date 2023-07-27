@@ -8,7 +8,6 @@ const openai = new OpenAIApi(configuration)
 
 const handler = async (event) => {
   try {
-    const dat = { t: event.body.t, l: event.body.l };
     const response = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt: `Give a short description of an image which could be used as an album cover for a song based on a title and lyrics. The description should be rich in visual detail.
@@ -127,8 +126,7 @@ const handler = async (event) => {
       Swallow the hurt and drift, searching for an omen
       image description: Extremely detailed and realistic, An empty canoe floats in front of a weeping willow tree on the shore of a lake.
       ###
-      title: ${dat.t}
-      synopsis: ${dat.l}
+      title: ${event.body}
       image description: 
       `,
       temperature: 0.8,

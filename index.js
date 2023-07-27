@@ -58,14 +58,13 @@ async function fetchTitle(lyrics) {
 
 async function fetchImagePromt(title, lyrics){
   const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/image'
-  const dat = { t: title, l: lyrics };
-  const body = JSON.stringify(dat);
+  const dat = title.concat('\nlyrics: ', lyrics)
   const response = await fetch(url, {
     method: 'POST',
     headers: {
-        'content-type': 'application/json',
+        'content-type': 'text/plain',
     },
-    body: body
+    body: dat
   })
   const data = await response.json()
   fetchImageUrl(data.reply.choices[0].text.trim())

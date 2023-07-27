@@ -63,7 +63,7 @@ async function fetchImagePromt(title, lyrics){
     headers: {
         'content-type': 'text/plain',
     },
-    body: JSON.stringify({title, lyrics})
+    body: JSON.stringify({t:title, l:lyrics})
   })
   const data = await response.json()
   fetchImageUrl(data.reply.choices[0].text.trim())

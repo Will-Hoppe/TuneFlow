@@ -126,8 +126,8 @@ const handler = async (event) => {
       Swallow the hurt and drift, searching for an omen
       image description: Extremely detailed and realistic, An empty canoe floats in front of a weeping willow tree on the shore of a lake.
       ###
-      title: ${event.title}
-      synopsis: ${event.lyrics}
+      title: ${event.body.t}
+      synopsis: ${event.body.l}
       image description: 
       `,
       temperature: 0.8,

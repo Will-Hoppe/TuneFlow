@@ -12,7 +12,7 @@ document.getElementById("send-btn").addEventListener("click", () => {
 })
 
 async function fetchBotReply(outline) {
-  const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/fetchAI'
+  const url = 'https://tune-wave.netlify.app/.netlify/functions/fetchAI'
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -28,7 +28,7 @@ async function fetchBotReply(outline) {
 } 
 
 async function fetchSynopsis(outline) {
-  const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/lyrics'
+  const url = 'https://tune-wave.netlify.app/.netlify/functions/lyrics'
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -44,7 +44,7 @@ async function fetchSynopsis(outline) {
 }
 
 async function fetchTitle(lyrics) {
-  const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/title'
+  const url = 'https://tune-wave.netlify.app/.netlify/functions/title'
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -60,7 +60,7 @@ async function fetchTitle(lyrics) {
 }
 
 async function fetchImagePromt(title, lyrics){
-  const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/image'
+  const url = 'https://tune-wave.netlify.app/.netlify/functions/image'
   const dat = title.concat('\nlyrics: ', lyrics)
   const response = await fetch(url, {
     method: 'POST',
@@ -75,7 +75,7 @@ async function fetchImagePromt(title, lyrics){
 }
 
 async function fetchImageUrl(imagePrompt){
-  const url = 'https://silly-syrniki-f0ccaf.netlify.app/.netlify/functions/imageGet'
+  const url = 'https://tune-wave.netlify.app/.netlify/functions/imageGet'
   const response = await fetch(url, {
     method: 'POST',
     headers: {

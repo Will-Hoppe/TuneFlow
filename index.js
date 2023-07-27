@@ -8,7 +8,6 @@ document.getElementById("send-btn").addEventListener("click", () => {
     setupInputContainer.innerHTML = `Loading...`
     lyricBossText.innerText = `Ok, just wait a second while my digital brain digests that...`
     fetchBotReply(userInput)
-    fetchSynopsis(userInput)
   }
 })
 
@@ -18,12 +17,14 @@ async function fetchBotReply(outline) {
     method: 'POST',
     headers: {
         'content-type': 'text/plain',
+        'Access-Control-Allow-Origin' : '*',
     },
     body: outline
   })
   const data = await response.json()
   
   lyricBossText.innerText = data.reply.choices[0].text.trim()
+  fetchSynopsis(outline)
 } 
 
 async function fetchSynopsis(outline) {
@@ -32,6 +33,7 @@ async function fetchSynopsis(outline) {
     method: 'POST',
     headers: {
         'content-type': 'text/plain',
+        'Access-Control-Allow-Origin' : '*',
     },
     body: outline
   })
@@ -47,6 +49,7 @@ async function fetchTitle(lyrics) {
     method: 'POST',
     headers: {
         'content-type': 'text/plain',
+        'Access-Control-Allow-Origin' : '*',
     },
     body: lyrics
   })
@@ -63,6 +66,7 @@ async function fetchImagePromt(title, lyrics){
     method: 'POST',
     headers: {
         'content-type': 'text/plain',
+        'Access-Control-Allow-Origin' : '*',
     },
     body: dat
   })
@@ -76,6 +80,7 @@ async function fetchImageUrl(imagePrompt){
     method: 'POST',
     headers: {
         'content-type': 'text/plain',
+        'Access-Control-Allow-Origin' : '*',
     },
     body: imagePrompt
   })
